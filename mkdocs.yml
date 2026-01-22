@@ -1,0 +1,46 @@
+site_name: XataCraft Wiki
+site_url: https://wiki.xatacraft.ru
+
+theme:
+  name: material
+  language: ru
+  # Убираем repo icon, если он не нужен, или оставляем
+  # icon:
+  #   repo: fontawesome/brands/git-alt 
+  palette:
+    - scheme: slate
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/weather-night
+        name: Светлая тема
+    - scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Темная тема
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html 
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - 🏠 Главная: index.md
+  - 📜 Правила: pravila.md
+  - 💸 Поддержка: donate.md
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search

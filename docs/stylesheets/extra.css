@@ -1,0 +1,148 @@
+/* docs/stylesheets/extra.css - GOLD EDITION (FINAL FIX) */
+
+/* 1. ГЛОБАЛЬНЫЙ ФОН */
+body {
+  background: url('bg.jpg') no-repeat center center fixed !important;
+  background-size: cover !important;
+  background-color: transparent !important;
+}
+
+/* 2. ПРОЗРАЧНОСТЬ КОНТЕЙНЕРОВ */
+.md-container, .md-main, .md-content {
+  background: transparent !important;
+}
+
+/* 3. ВЫРАВНИВАНИЕ БЛОКОВ (FIX) */
+/* Поднимаем центральный блок до уровня сайдбаров */
+.md-content {
+  margin-top: 0 !important;
+}
+
+article.md-content__inner {
+  /* Стекло */
+  background: rgba(32, 33, 36, 0.75) !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  
+  border-radius: 16px;
+  padding: 2.5rem !important;
+  
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  
+  /* Отступ сверху такой же, как у боковых меню */
+  margin-top: 0.5rem !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Боковые панели */
+.md-sidebar__scrollwrap {
+  background: rgba(20, 20, 25, 0.6);
+  backdrop-filter: blur(10px);
+  
+  border-radius: 12px;
+  margin: 0.5rem !important;
+  padding: 10px;
+  
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Хедер */
+.md-header {
+  background: rgba(20, 20, 25, 0.6) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: none !important;
+}
+
+/* 4. ЗОЛОТАЯ МАГИЯ (ТРИГГЕР: КНОПКА) */
+body:has(.page-donate)::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* Золотой градиент */
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.95), rgba(255, 215, 0, 0.90), rgba(218, 165, 32, 0.88), rgba(184, 134, 11, 0.92));
+  backdrop-filter: blur(8px) brightness(1.1);
+  -webkit-backdrop-filter: blur(8px) brightness(1.1);
+  
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+/* Показываем золото при наведении на кнопку */
+body:has(.page-donate .md-button--primary:hover)::after {
+  opacity: 1;
+}
+
+/* Поднимаем контент (кроме хедера) */
+body:has(.page-donate) .md-content,
+body:has(.page-donate) .md-sidebar,
+body:has(.page-donate) article,
+body:has(.page-donate) .page-donate * {
+  position: relative;
+  z-index: 11;
+}
+
+/* Хедер оставляем под текстом */
+body:has(.page-donate) .md-header {
+  z-index: 5 !important;
+}
+
+/* Текст на золоте */
+body:has(.page-donate .md-button--primary:hover) h1,
+body:has(.page-donate .md-button--primary:hover) h2,
+body:has(.page-donate .md-button--primary:hover) p,
+body:has(.page-donate .md-button--primary:hover) a:not(.md-button),
+body:has(.page-donate .md-button--primary:hover) .md-nav__link {
+  color: #1a1105 !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+/* Кнопка */
+.page-donate .md-button--primary:hover {
+  background: #000 !important;
+  color: #ffd700 !important;
+  border: 2px solid #ffd700 !important;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6) !important;
+  transform: scale(1.1);
+  z-index: 12 !important;
+}
+
+/* Затемнение блоков на золоте */
+body:has(.page-donate .md-button--primary:hover) article.md-content__inner,
+body:has(.page-donate .md-button--primary:hover) .md-sidebar__scrollwrap {
+  background: rgba(0, 0, 0, 0.2) !important;
+  border-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Сброс стилей контейнера */
+.page-donate {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* 5. МЕЛКИЕ ФИКСЫ */
+:root {
+  --md-typeset-color: #e4e4e4 !important;
+  --md-typeset-a-color: #58a6ff !important;
+}
+
+.md-typeset .admonition, .md-typeset details {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: none !important;
+}
+
+/* Скрываем футер "Made with..." */
+.md-footer__meta {
+  display: none !important;
+}
