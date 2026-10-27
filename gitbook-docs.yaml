@@ -1,0 +1,12 @@
+$schema: https://api.gitbook.com/gitbook-docs.yaml
+site:
+  title: xata
+  structure:
+    - type: space
+      key: space-1
+      title: xatacraft
+      path: xatacraft
+      default: true
+      content:
+        directory: ./xatacraft
+        language: ru
